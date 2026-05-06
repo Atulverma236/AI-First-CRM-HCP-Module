@@ -1,10 +1,6 @@
-# 🏥 PharmaConnect CRM – HCP Interaction Module
+#  PharmaConnect CRM – HCP Interaction Module
 
 An AI-First CRM system for logging and managing Healthcare Professional (HCP) interactions in life sciences field operations.
-
----
-
-## 📋 Assignment: AI-First CRM HCP Module – Log Interaction Screen
 
 ### Tech Stack
 | Layer | Technology |
@@ -16,53 +12,7 @@ An AI-First CRM system for logging and managing Healthcare Professional (HCP) in
 | Database | MySQL |
 | Font | Google Inter |
 
----
-
-## 🧠 Component Architecture
-
-```
-hcp-crm/
-├── frontend/
-│   └── src/
-│       ├── components/
-│       │   ├── Layout/
-│       │   │   └── Header.jsx          # Top nav bar
-│       │   ├── Form/
-│       │   │   └── InteractionForm.jsx # Structured form UI
-│       │   ├── Chat/
-│       │   │   └── ChatInterface.jsx   # AI chat interface
-│       │   └── UI/
-│       │       ├── TabSwitcher.jsx     # Form/Chat toggle
-│       │       ├── StatsBar.jsx        # Top stats cards
-│       │       └── InteractionHistory.jsx  # Right panel history
-│       ├── store/
-│       │   ├── index.js                # Redux store
-│       │   └── slices/
-│       │       ├── interactionSlice.js # Form state + async thunks
-│       │       ├── chatSlice.js        # Chat messages state
-│       │       └── hcpSlice.js         # HCP list state
-│       ├── pages/
-│       │   └── LogInteraction.jsx      # Main page layout
-│       └── styles/
-│           └── global.css             # CSS variables + base styles
-│
-├── backend/
-│   ├── main.py                        # FastAPI app entry
-│   ├── agents/
-│   │   └── hcp_agent.py              # LangGraph agent + 5 tools
-│   ├── routers/
-│   │   ├── interactions.py           # CRUD endpoints
-│   │   ├── agent.py                  # AI chat endpoint
-│   │   └── hcp.py                    # HCP list endpoints
-│   └── db/
-│       └── database.py               # SQLAlchemy models + DB setup
-│
-└── docker-compose.yml                # Full stack orchestration
-```
-
----
-
-## 🤖 LangGraph Agent & 5 Tools
+##  LangGraph Agent & 5 Tools
 
 The LangGraph agent acts as an intelligent orchestrator for HCP interaction management. It receives natural language from field reps and routes to the right tool.
 
@@ -96,32 +46,16 @@ Analyzes sentiment of interaction text:
 - Includes confidence score (0–1)
 - Provides reasoning for the classification
 
----
-
-## 🚀 Setup & Run Instructions
+##  Setup & Run Instructions
 
 ### Option A: Docker (Recommended – Easiest)
 
 **Prerequisites:** Docker Desktop installed
 
-```bash
-# 1. Clone the repository
-git clone <your-repo-url>
-cd hcp-crm
-
-# 2. Set your Groq API key
-echo "GROQ_API_KEY=your_groq_api_key_here" > .env
-
-# 3. Start everything
-docker-compose up --build
-
 # App is ready:
 # Frontend → http://localhost:3000
 # Backend API → http://localhost:8000
 # API Docs → http://localhost:8000/docs
-```
-
----
 
 ### Option B: Manual Setup (Step by Step)
 
@@ -132,21 +66,10 @@ Install mysql and create the database:
 
 # Create DB
 mysql -U mysql -c "CREATE DATABASE hcp_crm;"
-```
-
----
 
 #### Step 2: Backend Setup
 
-```bash
-cd hcp-crm/backend
 
-# Create virtual environment
-python -m venv venv
-
-# Activate
-# macOS/Linux:
-source venv/bin/activate
 # Windows:
 venv\Scripts\activate
 
@@ -161,16 +84,14 @@ cp .env.example .env
 
 # Run backend
 uvicorn main:app --reload --port 8000
-```
+
 
 Backend runs at: http://localhost:8000  
 API Docs: http://localhost:8000/docs
 
----
 
 #### Step 3: Frontend Setup
 
-```bash
 cd hcp-crm/frontend
 
 # Install dependencies
@@ -178,22 +99,18 @@ npm install
 
 # Start frontend
 npm start
-```
 
 Frontend runs at: http://localhost:3000
 
----
-
-## 🔑 Getting Your Groq API Key
+##  Getting Your Groq API Key
 
 1. Go to https://console.groq.com
 2. Sign up / Log in
 3. Click **API Keys** → **Create API Key**
 4. Copy the key into your `.env` file as `GROQ_API_KEY=...`
 
----
 
-## 🖥️ How to Use
+##  How to Use
 
 ### Structured Form Tab
 1. Open http://localhost:3000
@@ -213,9 +130,7 @@ Frontend runs at: http://localhost:3000
    - Generate a summary
    - Suggest follow-up actions
 
----
-
-## 📡 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -228,8 +143,4 @@ Frontend runs at: http://localhost:3000
 | GET | `/api/hcp/` | List all HCPs |
 | POST | `/api/hcp/` | Add new HCP |
 
----
 
-## 📤 Submission
-
-Submit via: https://forms.gle/g76jGd47P8T86gQ69
