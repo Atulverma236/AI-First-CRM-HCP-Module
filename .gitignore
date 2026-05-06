@@ -1,0 +1,84 @@
+# Node
+frontend/node_modules/
+frontend/build/
+
+# Python
+backend/__pycache__/
+backend/.env
+backend/venv/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# App is ready:
+# Frontend → http://localhost:3000
+# Backend API → http://localhost:8000
+# API Docs → http://localhost:8000/docs
+
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 18 + Redux Toolkit |
+| Backend | Python 3.11 + FastAPI |
+| AI Agent | LangGraph |
+| LLM | Groq – `llama-3.3-70b-versatile` |
+| Database | MySQL |
+| Font | Google Inter |
+
+
+# Start frontend
+npm start
+```
+
+Frontend runs at: http://localhost:3000
+
+---
+
+## 🔑 Getting Your Groq API Key
+
+1. Go to https://console.groq.com
+2. Sign up / Log in
+3. Click **API Keys** → **Create API Key**
+4. Copy the key into your `.env` file as `GROQ_API_KEY=...`
+
+---
+
+## 🖥️ How to Use
+
+### Structured Form Tab
+1. Open http://localhost:3000
+2. Fill in HCP name, interaction type, date/time
+3. Enter topics discussed and outcomes
+4. Set sentiment (Positive / Neutral / Negative)
+5. Add materials or samples if applicable
+6. Click **Log Interaction** to save
+
+### AI Chat Tab
+1. Switch to the **AI Chat** tab
+2. Type a natural description like:
+   > "Met Dr. Sharma today at Apollo Hospital, discussed OncoBoost Phase III trial results. She was very receptive, positive sentiment. Shared brochure."
+3. The AI will automatically:
+   - Extract all details
+   - Log the interaction to the database
+   - Generate a summary
+   - Suggest follow-up actions
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/interactions/` | Create interaction |
+| GET | `/api/interactions/` | List all interactions |
+| GET | `/api/interactions/{id}` | Get single interaction |
+| PUT | `/api/interactions/{id}` | Update interaction |
+| DELETE | `/api/interactions/{id}` | Delete interaction |
+| POST | `/api/agent/chat` | Chat with AI agent |
+| GET | `/api/hcp/` | List all HCPs |
+| POST | `/api/hcp/` | Add new HCP |
